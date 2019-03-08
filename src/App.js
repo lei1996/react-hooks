@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Joke from './Joke'
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
@@ -15,7 +16,7 @@ function App() {
   }
 
   const searchQuery = () => {
-    window.open(`https://www.baidu.com/s?wd=${userQuery}`)
+    window.open(`https://www.baidu.com/s?wd=${userQuery}`, '_blank')
   }
 
   return (
@@ -25,6 +26,8 @@ function App() {
         <input value={userQuery} onChange={updateUserQuery} onKeyPress={handleKeyPress} />
         <button onClick={searchQuery}>搜索</button>
       </div>
+      <hr />
+      <Joke />
     </div>
   )
 }
