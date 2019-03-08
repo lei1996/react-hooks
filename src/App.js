@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
 
 function App() {
-    return (
-      <div className="App">
-        App
-      </div>
-    );
+  const [userQuery, setUserQuery] = useState('')
+
+  return (
+    <div className="App">
+      <h1>Hello David</h1>
+    </div>
+  )
 }
 
-export default App;
+export default App
