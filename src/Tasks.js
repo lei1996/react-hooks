@@ -8,13 +8,10 @@ function Tasks() {
 
   const updateTaskText = event => {
     setTaskText(event.target.value)
-    // console.log(taskText)
   }
 
   const addTask = () => {
-    console.log(taskText)
     setTasks([...tasks, { taskText, id: uuid() }])
-    console.log(tasks)
   }
 
   const completeTask = completedTask => () => {
