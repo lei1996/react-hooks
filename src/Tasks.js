@@ -8,10 +8,25 @@ function Tasks() {
 
   const updateTaskText = event => {
     setTaskText(event.target.value)
+    // console.log(taskText)
   }
 
   const addTask = () => {
+    console.log(taskText)
     setTasks([...tasks, { taskText, id: uuid() }])
+    console.log(tasks)
+  }
+
+  const completeTask = completedTask => () => {
+    // 将任务 添加到已完成的数组内。
+    setCompletedTasks([...completedTasks, completedTask])
+    // 重新赋值tasks， 过滤传入的completedTask
+    setTasks(tasks.filter(task => task.id !== completedTask.id))
+  }
+
+  const deleteTask = task => () => {
+    setCompletedTasks(completedTasks.filter(t => t.id !== task.id))
+    // setTasks([...tasks, task])
   }
 
   console.log('tasks', tasks)
@@ -26,8 +41,26 @@ function Tasks() {
       <div className="task-list">
         {tasks.map(task => {
           const { id, taskText } = task
-          return <div key={id}>{taskText}</div>
+          return (
+            <div key={id} onClick={completeTask(task)}>
+              {taskText}
+            </div>
+          )
         })}
+        <div className="completed-list">
+          {completedTasks.map(task => {
+            const { id, taskText } = task
+
+            return (
+              <div key={id}>
+                {taskText} {'  '}{' '}
+                <span onClick={deleteTask(task)} className="delete-task">
+                  x
+                </span>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
