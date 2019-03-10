@@ -15,6 +15,7 @@ function Gallery() {
     }, 3000)
 
     return () => {
+      // 在移除组件的时候，移除定时器，避免内存泄漏
       clearInterval(interval)
     }
   }, [])

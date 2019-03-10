@@ -6,6 +6,7 @@ import Gallery from './Gallery'
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
+  const [showGallery, setShowGallery] = useState(true)
 
   const updateUserQuery = event => {
     setUserQuery(event.target.value)
@@ -22,6 +23,10 @@ function App() {
     window.open(`https://www.baidu.com/s?wd=${userQuery}`, '_blank')
   }
 
+  const toggleShowGallery = () => {
+    setShowGallery(!showGallery)
+  }
+
   return (
     <div className="App">
       <h1>Hello David</h1>
@@ -35,7 +40,10 @@ function App() {
       <hr />
       <Tasks />
       <hr />
-      <Gallery />
+      <div>
+        {showGallery ? <Gallery /> : null}
+        <button onClick={toggleShowGallery}>{showGallery ? '隐藏' : '显示'} Gallery</button>
+      </div>
       <hr />
       <Stories />
     </div>
