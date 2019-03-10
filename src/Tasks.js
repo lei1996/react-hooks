@@ -1,10 +1,29 @@
 import React, { useState } from 'react'
 import uuid from 'uuid/v4'
 
+// let i = 0
+
 function Tasks() {
   const [taskText, setTaskText] = useState('')
+
   const [tasks, setTasks] = useState([])
   const [completedTasks, setCompletedTasks] = useState([])
+
+  // if (i % 2 === 0) {
+  //   ;[tasks, setTasks] = useState([])
+  //   ;[completedTasks, setCompletedTasks] = useState([])
+  // } else {
+  //   let [foo, setFoo] = useState([])
+  //   let [bar, setBar] = useState([])
+  //   tasks = foo
+  //   setTasks = setFoo
+  //   completedTasks = bar
+  //   setCompletedTasks = setBar
+  // }
+
+  // // 这里测试了，i的值，在每次输入和 点击click 都会刷新他的值
+  // i++
+  // console.log(i)
 
   const updateTaskText = event => {
     setTaskText(event.target.value)
