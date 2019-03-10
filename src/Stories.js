@@ -7,7 +7,7 @@ function Stories() {
 
   return (
     <div className="Stories">
-      <h3>Stories</h3>
+      <h3>Stories - 需要梯子（翻墙）</h3>
       {stories.map(story => {
         const { id, by, time, title, url } = story
 

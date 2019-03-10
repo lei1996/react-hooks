@@ -7,7 +7,7 @@ function Joke() {
 
   return (
     <div>
-      <h3>Joke</h3>
+      <h3>Joke - 需要梯子（翻墙）</h3>
       <p>{setup}</p>
       <p>
         <em>{punchline}</em>
