@@ -1,13 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import uuid from 'uuid/v4'
+
+const TASKS_STORAGE_KEY = 'TASKS_STORAGE_KEY'
+
+const storeTasks = taskMap => {
+  localStorage.setItem(TASKS_STORAGE_KEY, JSON.stringify(taskMap))
+}
+
+const readStoredTasks = () => {
+  const taskMap = JSON.parse(localStorage.getItem(TASKS_STORAGE_KEY))
+  return taskMap ? taskMap : { tasks: [], completedTasks: [] }
+}
 
 // let i = 0
 
 function Tasks() {
   const [taskText, setTaskText] = useState('')
+  const storedTasks = readStoredTasks()
+  const [tasks, setTasks] = useState(storedTasks.tasks)
+  const [completedTasks, setCompletedTasks] = useState(storedTasks.completedTasks)
 
-  const [tasks, setTasks] = useState([])
-  const [completedTasks, setCompletedTasks] = useState([])
+  useEffect(() => {
+    storeTasks({ tasks, completedTasks })
+  })
 
   // if (i % 2 === 0) {
   //   ;[tasks, setTasks] = useState([])
