@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+// 自定义hooks
 export const useFetch = (url, initialValue) => {
   const [result, setResult] = useState(initialValue)
 
@@ -12,6 +13,7 @@ export const useFetch = (url, initialValue) => {
   return result
 }
 
+// 自定义hooks
 export const useDynamicTransition = ({ increment, delay, length }) => {
   const [index, setIndex] = useState(0)
 
@@ -19,7 +21,7 @@ export const useDynamicTransition = ({ increment, delay, length }) => {
     const interval = setInterval(() => {
       setIndex(storedIndex => {
         // 这里storedIndex 拿到的是 index 的值
-        console.log('storedIndex', storedIndex)
+        // console.log('storedIndex', storedIndex)
         return (storedIndex + increment) % length
       })
       //   console.log('(index + 1) % PICTURES.length', (index + 1) % PICTURES.length)

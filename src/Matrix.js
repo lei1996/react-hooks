@@ -28,7 +28,7 @@ function Matrix() {
     setIncrement(increment < minimumIncrement ? minimumIncrement : increment)
   }
 
-  console.log('delay', delay, 'increment', increment)
+  // console.log('delay', delay, 'increment', increment)
 
   return (
     <div className="Matrix">
