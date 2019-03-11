@@ -3,6 +3,7 @@ import Joke from './Joke'
 import Stories from './Stories'
 import Tasks from './Tasks'
 import Gallery from './Gallery'
+import Matrix from './Matrix'
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
@@ -39,6 +40,8 @@ function App() {
       <Joke />
       <hr />
       <Tasks />
+      <hr />
+      <Matrix />
       <hr />
       <div>
         {showGallery ? <Gallery /> : null}
