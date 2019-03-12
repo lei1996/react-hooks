@@ -20,10 +20,10 @@ function PublishMessage(props) {
 
   return (
     <div>
-      <h3>Got something to say?</h3>
+      <h3>小哥哥，聊天吗？</h3>
       <input value={text} onChange={updateText} onKeyPress={handleKeyPress} />
       {'  '}
-      <button onClick={publishMessage}>Publish it!</button>
+      <button onClick={publishMessage}>发送</button>
     </div>
   )
 }
