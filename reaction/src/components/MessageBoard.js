@@ -1,8 +1,14 @@
 import React from 'react'
+import { useAppContext } from './hooks' // 引入自定义 hooks
 
-function MessageBoard({ messages }) {
+function MessageBoard() {
+  // 调用 useAppContext() 将 state 里面的 messages 数组 解构出来
+  const {
+    state: { messages }
+  } = useAppContext()
   return (
     <div>
+      {/* 将messages 循环遍历出模版 */}
       {messages.map(messageItem => {
         const { id, text, timestamp } = messageItem
 
