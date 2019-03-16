@@ -4,6 +4,7 @@ import Context from '../context' //引入createContext()
 import PubSub from '../pubsub'
 import PublishMessage from './PublishMessage'
 import MessageBoard from './MessageBoard'
+import SetUsername from './SetUsername'
 
 const pubsub = new PubSub()
 
@@ -31,6 +32,8 @@ function App() {
     // 将减速器创建的 state 和 dispatch 和 pubsub 对象实例 传入进去
     <Context.Provider value={{ state, dispatch, pubsub }}>
       <h2>Reaction</h2>
+      {/* 设置名字 组件 */}
+      <SetUsername />
       <hr />
       <PublishMessage />
       <hr />
