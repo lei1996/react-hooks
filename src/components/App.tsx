@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react'
 import reducer, { initialState } from '../state/reducer'
+import Context from '../context'
 import PublishMessage from './PublishMessage'
 import MessageBoard from './MessageBoard'
 
@@ -9,13 +10,13 @@ function App() {
   console.log('state', state)
 
   return (
-    <div>
+    <Context.Provider value={{ state, dispatch }}>
       <h4>Typescript react.</h4>
       <hr />
-      <PublishMessage dispatch={dispatch} />
+      <PublishMessage />
       <hr />
-      <MessageBoard messages={state.messages} />
-    </div>
+      <MessageBoard />
+    </Context.Provider>
   )
 }
 

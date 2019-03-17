@@ -1,6 +1,10 @@
 import React from 'react'
+import { useAppContext } from './hooks'
 
-function MessageBoard({ messages }: any) {
+function MessageBoard() {
+  const {
+    state: { messages }
+  } = useAppContext()
   return (
     <div>
       {/* 将messages 循环遍历出模版 */}
