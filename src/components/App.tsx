@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react'
-import reducer, { initialState } from './state/reducer'
+import reducer, { initialState } from '../state/reducer'
+import PublishMessage from './PublishMessage'
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -9,6 +10,9 @@ function App() {
   return (
     <div>
       <h4>Typescript react.</h4>
+      <hr />
+
+      <PublishMessage dispatch={dispatch} />
     </div>
   )
 }
