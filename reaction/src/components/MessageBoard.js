@@ -1,11 +1,12 @@
 import React from 'react'
 import { useAppContext } from './hooks' // 引入自定义 hooks
 import CreateReaction from './CreateReaction'
+import MessageReactions from './MessageReactions'
 
 function MessageBoard() {
   // 调用 useAppContext() 将 state 里面的 messages 数组 解构出来
   const {
-    state: { messages }
+    state: { messages, reactionsMap }
   } = useAppContext()
   return (
     <div>
@@ -19,7 +20,8 @@ function MessageBoard() {
             <p>{text}</p>
             {/* 添加名字的模版 */}
             <h4> - {username}</h4>
-            <CreateReaction />
+            <CreateReaction messageId={id} />
+            <MessageReactions messageReactions={reactionsMap[id]} />
             <hr />
           </div>
         )
